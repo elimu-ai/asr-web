@@ -11,6 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.literacyapp.asr.enums.Gender;
+import org.literacyapp.asr.enums.Language;
 import org.literacyapp.asr.enums.MicrophoneType;
 
 @Entity
@@ -20,7 +21,8 @@ public class AudioRecording extends BaseEntity {
     private Contributor contributor;
     
     @NotNull
-    private String locale; // ISO ??? (e.g. "en_US")
+    @Enumerated(EnumType.STRING)
+    private Language language;
     
     @NotNull
     @Lob
@@ -56,12 +58,12 @@ public class AudioRecording extends BaseEntity {
         this.contributor = contributor;
     }
 
-    public String getLocale() {
-        return locale;
+    public Language getLanguage() {
+        return language;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public byte[] getBytesWav() {

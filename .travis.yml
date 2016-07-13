@@ -1,0 +1,10 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+script:
+  mvn clean install
+
+#notifications:
+#  slack: literacyapp:HLjtHJdZ7DYJV2DlnDLrG6Gl
